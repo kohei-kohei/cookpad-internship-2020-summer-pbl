@@ -1,51 +1,42 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
-
-    <p>今日の食事</p>
-
-    <p>今日の運動</p>
-    <table>
-      <tbody>
-        <tr>
-          <th>ID</th>
-          <th>name</th>
-          <th>time</th>
-        </tr>
-        <tr v-for="e in exercises" :key="e.id">
-          <td>{{ e.id }}</td>
-          <td>{{ e.name }}</td>
-          <td>{{ e.time }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <Nav></Nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import Vue from "vue";
+import VueRouter from "vue-router";
+import ElementUI from "element-ui";
+import locale from "element-ui/lib/locale/lang/ja";
+import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/display.css";
+
+Vue.use(ElementUI, { locale });
+Vue.use(VueRouter);
+
+import Top from "Top.vue";
+import Nav from "Nav.vue";
+import PersonalPage from "PersonalPage.vue";
+import Login from "Login.vue";
+
+const router = new VueRouter({
+  mode: "history",
+  routes: [
+    { path: "/", component: Top },
+    { path: "/personalpage", component: PersonalPage },
+    { path: "/login", component: Login },
+  ],
+});
 
 export default {
-  data: function () {
-    return {
-      message: "Hello Rails&Vue!",
-      exercises: [],
-    };
-  },
-  created() {
-    axios.get("/api/v1/exercises.json").then((response) => {
-      this.exercises = response.data;
-    });
+  router,
+  components: {
+    Nav,
   },
 };
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-table {
-  margin: 0 auto;
-}
 </style>
