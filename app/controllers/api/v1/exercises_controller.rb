@@ -31,7 +31,7 @@ class Api::V1::ExercisesController < ApiController
       end
 
       def exercise_params
-        params.fetch(:exercise, {}).permit(:name, :time)
+        params.fetch(:exercise, {}).permit(:name, :time, :momentum)
       end
   
       def render_status_404(exception)
