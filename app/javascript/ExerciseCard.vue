@@ -1,8 +1,7 @@
 <template>
   <div class="card">
     <img :src="url" :alt="title" />
-    <p>{{ title }}</p>
-    <p>{{ time }}分</p>
+    <p>{{ title }} {{ time }}分</p>
     <p>{{ momentum }}kcal</p>
   </div>
 </template>
@@ -10,6 +9,9 @@
 <script>
 export default {
   props: {
+    id: {
+      type: Number,
+    },
     url: {
       type: String,
       default:
@@ -43,11 +45,7 @@ export default {
   display: flex;
   align-items: center;
 }
-p {
-  pointer-events: none;
-}
 img {
-  pointer-events: none;
   width: 100%;
   height: 200px;
   border-radius: 8px 8px 0 0;

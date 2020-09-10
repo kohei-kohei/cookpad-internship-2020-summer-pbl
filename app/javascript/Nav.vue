@@ -79,6 +79,7 @@ button {
 }
 .login {
   background-color: rgb(184, 184, 184);
+  border: 1px solid rgb(150, 150, 150);
   margin-right: 40px;
   padding: 8px;
   width: 100px;

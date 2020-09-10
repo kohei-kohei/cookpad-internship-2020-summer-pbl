@@ -1,8 +1,7 @@
 <template>
   <div class="card">
     <img :src="url" :alt="title" />
-    <p>{{ title }}</p>
-    <p>{{ volume }}</p>
+    <p>{{ title }} {{ volume }}</p>
     <p>{{ nutrition }}</p>
   </div>
 </template>

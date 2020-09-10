@@ -20,6 +20,7 @@ import Top from "Top.vue";
 import Nav from "Nav.vue";
 import PersonalPage from "PersonalPage.vue";
 import Login from "Login.vue";
+import Recipe from "Recipe.vue";
 
 const router = new VueRouter({
   mode: "history",
@@ -27,6 +28,7 @@ const router = new VueRouter({
     { path: "/", component: Top },
     { path: "/personalpage", component: PersonalPage },
     { path: "/login", component: Login },
+    { path: "/recipe", component: Recipe },
   ],
 });
 
