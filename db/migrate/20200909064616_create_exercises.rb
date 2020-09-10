@@ -3,6 +3,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
     create_table :exercises do |t|
       t.string :name, null: false, default: ""
       t.integer :time, null: false, default: 0
+      t.integer :momentum, null: false, default: 0
 
       t.timestamps
     end

@@ -18,4 +18,8 @@ p {
   font-size: 24px;
   text-align: center;
 }
+.el-button {
+  display: block;
+  margin: 0 auto;
+}
 </style>
