@@ -1,8 +1,10 @@
 <template>
-  <div class="card">
+  <div class="food-card">
     <img :src="url" :alt="title" />
     <p>{{ title }} {{ volume }}</p>
-    <p>{{ nutrition }}</p>
+    <p class="nutrition">糖質：{{ suger }}g</p>
+    <p class="nutrition">タンパク質：{{ protain }}g</p>
+    <p class="nutrition">脂質：{{ fat }}g</p>
   </div>
 </template>
 
@@ -19,31 +21,41 @@ export default {
     volume: {
       type: String,
     },
-    nutrition: {
-      type: String,
+    suger: {
+      type: Number,
+    },
+    protain: {
+      type: Number,
+    },
+    fat: {
+      type: Number,
     },
   },
 };
 </script>
 
 <style scoped>
-.card {
+.food-card {
   background-color: #fff;
   text-align: center;
   border: 1px solid #aaa;
   border-radius: 8px !important;
   width: calc(33.33333% - 42px);
   margin: 20px;
+  height: 360px;
 }
 .flex {
   display: flex;
   align-items: center;
 }
 p {
-  pointer-events: none;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.nutrition {
+  margin: 0;
 }
 img {
-  pointer-events: none;
   width: 100%;
   height: 200px;
   border-radius: 8px 8px 0 0;

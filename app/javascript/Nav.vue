@@ -1,8 +1,8 @@
 <template>
   <div id="nav" class="flex">
-    <h2 @click="goTop">体を作る</h2>
+    <h2 @click="goTop">FoodMakes</h2>
 
-    <button class="login" @click="onLogin" v-if="true">ログイン</button>
+    <button class="login" @click="onLogin" v-if="true">ログアウト</button>
     <button class="logout" @click="onLogout" v-if="false">ログアウト</button>
     <i class="el-icon-user-solid" @click="goPersonal"></i>
   </div>
@@ -85,7 +85,8 @@ button {
   width: 100px;
 }
 .logout {
-  background-color: rgb(255, 155, 40);
+  background-color: rgb(184, 184, 184);
+  border: 1px solid rgb(150, 150, 150);
   margin-right: 40px;
   padding: 8px;
   width: 100px;
