@@ -1,20 +1,20 @@
 <template>
   <div id="top">
-    <p>トップページ</p>
-
-    <p class="sub_title">今日の食事</p>
+    <p class="sub-title">今日の食事</p>
 
     <div class="flex">
-      <template v-for="(e, key) in foods">
+      <template v-for="(food, key) in foods">
         <FoodCard
           :key="key"
-          :url="e.url"
-          :title="e.name"
-          :volume="e.amount"
-          :nutrition="e.nutrition"
+          :url="food.url"
+          :title="food.name"
+          :volume="food.amount"
+          :suger="food.suger"
+          :protain="food.protain"
+          :fat="food.fat"
         ></FoodCard>
       </template>
-      <div class="card" @click="foodDialogVisible = true">
+      <div class="food-card" @click="foodDialogVisible = true">
         <p class="add">追加する</p>
         <i class="el-icon-circle-plus-outline"></i>
       </div>
@@ -34,7 +34,7 @@
       </span>
     </el-dialog>
 
-    <p class="sub_title">今日の運動</p>
+    <p class="sub-title">今日の運動</p>
 
     <div class="flex">
       <template v-for="(e, key) in exercises">
@@ -47,7 +47,7 @@
           :momentum="e.momentum"
         ></ExerciseCard>
       </template>
-      <div class="card" @click="newExercise">
+      <div class="exercise-card" @click="newExercise">
         <p class="add">追加する</p>
         <i class="el-icon-circle-plus-outline"></i>
       </div>
@@ -80,7 +80,7 @@
       </span>
     </el-dialog>
 
-    <el-button type="warning" @click="goRecipe">レシピの提案</el-button>
+    <el-button type="warning" @click="goRecipe">レシピの提案を受ける</el-button>
   </div>
 </template>
 
@@ -102,14 +102,18 @@ export default {
             "https://anna-media.jp/wp-content/uploads/2019/04/DSC_8799-e1555980678847.jpg",
           name: "食パン",
           amount: "１枚",
-          nutrition: "タンパク質：5g",
+          suger: 27,
+          protain: 5,
+          fat: 2.3,
         },
         {
           url:
             "https://img2.mypl.net/image.php?id=2fdb4f1375e90b138dbfa1302dc9889872739d95_cms_image.jpg&p=s3-img-origin02&s=480_740&op=",
           name: "ラーメン",
           amount: "１杯",
-          nutrition: "タンパク質：20g",
+          suger: 73,
+          protain: 20,
+          fat: 8.6,
         },
       ],
       exercises: [],
@@ -254,7 +258,7 @@ p {
   text-align: center;
   margin: 0 0 20px 0;
 }
-.sub_title {
+.sub-title {
   margin: 50px 0 0 0;
 }
 table {
@@ -262,7 +266,7 @@ table {
 }
 button {
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 50px;
 }
 .flex {
   align-items: center;
@@ -270,7 +274,17 @@ button {
   flex-wrap: wrap;
   text-align: center;
 }
-.card {
+.food-card {
+  background-color: #fff;
+  text-align: center;
+  border: 1px solid #aaa;
+  border-radius: 0.3em;
+  background-color: #fff;
+  width: calc(33.33333% - 42px);
+  margin: 20px;
+  height: 360px;
+}
+.exercise-card {
   background-color: #fff;
   text-align: center;
   border: 1px solid #aaa;
